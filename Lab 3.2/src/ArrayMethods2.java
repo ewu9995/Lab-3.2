@@ -49,7 +49,7 @@ public class ArrayMethods2 {
 		            z++;
 		        	}
 			  
-			  while (x < list1.length)
+			 if (x < list1.length)
 			    {
 			        combinedArray[z] = list1[x];
 			        x++;
@@ -58,7 +58,7 @@ public class ArrayMethods2 {
 			      
 			    }
 
-			    while (y < list2.length)
+			    if (y < list2.length)
 			    {
 			        combinedArray[z] = list2[y];
 			        y++;
