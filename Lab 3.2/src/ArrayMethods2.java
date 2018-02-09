@@ -23,16 +23,15 @@ public class ArrayMethods2 {
 		System.out.println(list);
 	}
 	
-	
 
 //https://stackoverflow.com/questions/5958169/how-to-merge-two-sorted-arrays-into-a-sorted-array
 
 	public static String[] merge(String[] list1 , String[] list2) {
-			String [] combinedArray = new String[list1.length + list2.length];
-			int x=0;
-			int y=0;
-			int z=0;
-			  while (x <list1.length && y < list2.length)
+			String [] combinedArray = new String[list1.length + list2.length]; //new array must be length of both arrays combined
+			int x=0; //list1
+			int y=0; //list2
+			int z=0; //new array (combinedArray)
+			  while (x < list1.length && y < list2.length)
 		        {
 		            if (list1[x].compareTo(list2[y]) < 0)
 		            {
@@ -43,28 +42,21 @@ public class ArrayMethods2 {
 		            else
 		            {
 		            	combinedArray[z] = list2[y];
-		                y++;
-				      
+		                y++; 
 		            }
 		            z++;
 		        	}
 			  
-			 if (x < list1.length)
+			  	if (x < list1.length)
 			    {
 			        combinedArray[z] = list1[x];
-			        x++;
-			        z++;
-			       
-			      
+			        x++; z++;
 			    }
 
 			    if (y < list2.length)
 			    {
 			        combinedArray[z] = list2[y];
-			        y++;
-			        z++;
-			      
-			      
+			        y++; z++;
 			    }
 
 			    return combinedArray;
@@ -79,25 +71,22 @@ public class ArrayMethods2 {
 	
 	
 	public static int partition(int[]list) {
-		int low=0;
-		int high = list.length;
-		 int i = low - 1;
-		 int j = high;
-		for(int x =0; x<list.length-1;x++) {
-		 high = list.length-1;
-		int pivot = list[x];
-		low = pivot;
+		int i = 0;
+		int j = list.length-1;
+		int pivot = list[0];
 		 while (i < j)
 		 {
-		  for (i++; list[i] < pivot; i++);
-		  for (j--; list[j] > pivot; j--);
+		  for (i++; list[i] < pivot; i++) {
+		  for (j--; list[j] > pivot; j--) {
 		  if (i < j)
 		   swap(list, i, j);
+		 
 		 }
-		}
+		
 		 return j;
 		
 	}
+
 
 	public static void swap(int []arr, int index1, int index2) {
 		int temp = arr[index1];
@@ -107,7 +96,8 @@ public class ArrayMethods2 {
 }
 
 
-/*public static int partition(int[]list) {
+/*
+public static int partition(int[]list) {
 int pivotLocation = 0;
 for(int i=0; i < list.length-1; i++ ) {
 	int pivot = i;
@@ -115,9 +105,11 @@ for(int i=0; i < list.length-1; i++ ) {
 	for(int j = list.length-1; j >0; j-- ) {
 		if(j> pivot) {
 			pivotLocation = list[j];
+			swap(list, pivot ,j );
 		}
 		else if (pivot >j) {
 			pivotLocation = list[i];
+			swap( list, pivot, j);
 		}
 	}
 }
